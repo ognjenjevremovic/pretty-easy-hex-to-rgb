@@ -1,8 +1,10 @@
 # pretty-easy-hex-to-rgb
-Converts a hex color value to it's corresponding rgb value 
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Tests][tests-image]][travis-url]
 
 ### *What is pretty-easy-hex-to-rgb?*
-***pretty-easy-date-check*** *is a simple NodeJS module for converting a HEX color value to it's corresponding rgb value*.
+***pretty-easy-hex-to-rgb*** *is a simple NodeJS module for converting a HEX color value to it's corresponding rgb value*.
 
 &nbsp;
 
@@ -68,3 +70,9 @@ Please open a an [issue](https://github.com/ognjenjevremovic/pretty-easy-hex-to-
 Copyright (c) 2017 [Ognjen Jevremović](https://github.com/ognjenjevremovic)
 
 Licensed under the [MIT](https://github.com/ognjenjevremovic/pretty-easy-hex-to-rgb/blob/master/LICENSE) License.
+
+[npm-image]: https://img.shields.io/npm/v/pretty-easy-hex-to-rgb.svg
+[npm-url]: https://npmjs.org/package/pretty-easy-hex-to-rgb
+[travis-image]: https://img.shields.io/travis/ognjenjevremovic/pretty-easy-hex-to-rgb/master.svg
+[travis-url]: https://travis-ci.org/ognjenjevremovic/pretty-easy-hex-to-rgb
+[tests-image]: https://img.shields.io/badge/test-passing-green.svg
