@@ -7,7 +7,7 @@
  * @param {string} hex
  * @returns {number[]}
  */
-export default function rgb(hex: string): number[] {
+export function rgb(hex: string): number[] {
     //  Placeholders
     let red     : number;
     let green   : number;

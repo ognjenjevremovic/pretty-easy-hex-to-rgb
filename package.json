@@ -1,10 +1,10 @@
 {
   "name": "pretty-easy-hex-to-rgb",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Converts a hex color value to it's coresponding rgb value and returns it in an array like format of red, green, blue color values",
   "author": "Ognjen Jevremović <jevremovic.ognjen@gmail.com> (https://github.com/ognjenjevremovic)",
-  "homepage": "https://github.com/ognjenjevremovic/pretty-easy-date-check",
-   "bugs": {
+  "homepage": "https://github.com/ognjenjevremovic/pretty-easy-hex-to-rgb",
+  "bugs": {
     "url": "https://github.com/ognjenjevremovic/pretty-easy-hex-to-rgb/issues",
     "email": "ognjen.jevremovic@gmail.com"
   },
@@ -24,13 +24,21 @@
     "pretty-easy",
     "prettyeasy",
     "hex-to-rgb",
-    "hex-rgb",
     "hex to rgb",
+    "hex-color-to-rgb",
+    "hex value to rgb",
+    "hex color to rgb",
+    "hex-rgb",
+    "hex rbg",
     "hex color to rgb color"
   ],
   "devDependencies": {
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.8",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "pretty-easy-data-types": "^1.0.0"
   }
 }

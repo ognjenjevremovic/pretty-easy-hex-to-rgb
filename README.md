@@ -39,14 +39,14 @@ The function returns an Array of numbers, in the order of *red color value*, *gr
 
 ## Examples
 
-### Valid dates
+### Convert HEX to RGB
 ```javascript
-let now = hexToRgb('f00');          //  [255, 0, 0]
-let now = hexToRgb('#0F0');         //  [0, 255, 0]
-let now = hexToRgb('#0000fF');      //  [0, 0, 255]
-let now = hexToRgb('#ffc0cb');      //  [255, 192, 203]
-let now = hexToRgb('#008080');      //  [0, 128, 128]
-let now = hexToRgb('#FFE4E1');      //  [255, 228, 225]
+hexToRgb('f00');          //  [255, 0, 0]
+hexToRgb('#0F0');         //  [0, 255, 0]
+hexToRgb('#0000fF');      //  [0, 0, 255]
+hexToRgb('#ffc0cb');      //  [255, 192, 203]
+hexToRgb('#008080');      //  [0, 128, 128]
+hexToRgb('#FFE4E1');      //  [255, 228, 225]
 
 /*
 *   Note that you can, but you're not forced to, to include a 

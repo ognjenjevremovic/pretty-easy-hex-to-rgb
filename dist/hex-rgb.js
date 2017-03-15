@@ -26,5 +26,5 @@ function rgb(hex) {
         throw Error('Invalid HEX color code value supplied');
     return [red, green, blue];
 }
-exports.default = rgb;
+exports.rgb = rgb;
 //# sourceMappingURL=hex-rgb.js.map

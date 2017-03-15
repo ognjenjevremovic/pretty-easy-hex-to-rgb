@@ -1,6 +1,6 @@
 //  Dependancies
 import * as assert from 'assert';
-import hexToRbg from '../lib/index';
+import * as hexToRbg from '..';
 
 
 //  For test purposes only

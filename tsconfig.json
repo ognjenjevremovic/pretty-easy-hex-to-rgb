@@ -16,7 +16,10 @@
         ]
     },
     "exclude": [
-        "node_modules/",
-        "tests/"
+        "node_modules/"
+    ],
+    "include": [
+        "lib/**/*.ts",
+        "tests/spec.ts"
     ]
 }
