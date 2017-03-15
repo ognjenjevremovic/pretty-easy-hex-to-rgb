@@ -30,10 +30,10 @@ import hexToRgb from 'pretty-easy-hex-to-rgb'
 The module returns a function for you to call and supply it with a HEX color value that you'd like to be tarnsformed into the corresponding rgb value.
 The function returns an Array of numbers, in the order of *red color value*, *green color value* and *blue color value*.
 
-*Side Notes:*
-    * hashes are optional,
-    * you can use both lowercase and UPPERCASE letters,
-    * you can use both 3 or 6 character notation for the HEX value
+***Important:***
+ * hashes are optional (both *'#f00'* and *'f00'* will produce the same output),
+ * you can use both _lowercase_ and _UPPERCASE_ letters (*'F00'* and *'f00'* will produce the same output),
+ * you can use both 3 and 6 character notation for the HEX value (*'FF0000'* and *'F00'* will produce the same output).
 
 &nbsp;
 
