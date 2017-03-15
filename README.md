@@ -21,14 +21,17 @@ After installing the module (localy in your project directory), in order to use 
 ```javascript
 let hexToRgb = require('pretty-easy-hex-to-rgb');
 ```
+&nbsp;
 
 or if you use TypeScript
 ```typescript
 import hexToRgb from 'pretty-easy-hex-to-rgb'
 ```
+&nbsp;
 
 The module returns a function for you to call and supply it with a HEX color value that you'd like to be tarnsformed into the corresponding rgb value.
 The function returns an Array of numbers, in the order of *red color value*, *green color value* and *blue color value*.
+&nbsp;
 
 ***Important:***
  * hashes are optional (both *'#f00'* and *'f00'* will produce the same output),
@@ -39,7 +42,7 @@ The function returns an Array of numbers, in the order of *red color value*, *gr
 
 ## Examples
 
-### Convert HEX to RGB
+### Convert HEX color to RGB color
 ```javascript
 hexToRgb('f00');          //  [255, 0, 0]
 hexToRgb('#0F0');         //  [0, 255, 0]
