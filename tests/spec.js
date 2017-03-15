@@ -2,10 +2,7 @@
 exports.__esModule = true;
 //  Dependancies
 var assert = require("assert");
-var index_1 = require("../lib/index");
-//  Console message outputs
-var isHex = 'Value provided is a valid HEX color value';
-var isNotHex = 'Value provided is NOT a valid HEX color value';
+var index_1 = require("../dist/index");
 //  Test - Not a string (Errors out)
 describe('Value passed is not a string at all', function () {
     //  undefined
@@ -49,6 +46,7 @@ describe('Value passed is not a string at all', function () {
         assert.throws(function () { return index_1["default"](new Error('some error')); }, Error);
     });
 });
+//  Test - Invalid hex color value (Errors out)
 describe('Value passed is not a valid HEX color value representation', function () {
     it('should throw an error - string but not a valid HEX color value representation', function () {
         assert.throws(function () { return index_1["default"](''); }, Error);
@@ -59,6 +57,7 @@ describe('Value passed is not a valid HEX color value representation', function 
         assert.throws(function () { return index_1["default"]('#4+?]p'); }, Error);
     });
 });
+//  Test - Valid hex color value (Returns an array)
 describe('Value passed is a valid HEX color value representation', function () {
     it('should return an array of numbers, representing RGB values', function () {
         assert.deepEqual(index_1["default"]('#e54'), [238, 85, 68]);

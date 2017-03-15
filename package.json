@@ -1,14 +1,33 @@
 {
   "name": "pretty-easy-hex-to-rgb",
-  "version": "0.0.1",
-  "description": "Converts a hex color value to it's coresponding rgb value ",
+  "version": "1.0.0",
+  "description": "Converts a hex color value to it's coresponding rgb value and returns it in an array like format of red, green, blue color values",
+  "author": "Ognjen Jevremović <jevremovic.ognjen@gmail.com> (https://github.com/ognjenjevremovic)",
+  "homepage": "https://github.com/ognjenjevremovic/pretty-easy-date-check",
+   "bugs": {
+    "url": "https://github.com/ognjenjevremovic/pretty-easy-hex-to-rgb/issues",
+    "email": "ognjen.jevremovic@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ognjenjevremovic/pretty-easy-hex-to-rgb.git"
+  },
+  "license": "MIT",
   "main": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "mocha ./tests/spec.js"
   },
-  "types": "index.d.ts",
-  "author": "Ognjen Jevremovic",
-  "license": "MIT",
+  "keywords": [
+    "pretty-easy-hex-to-rgb",
+    "pretty-easy-*",
+    "pretty-easy",
+    "prettyeasy",
+    "hex-to-rgb",
+    "hex-rgb",
+    "hex to rgb",
+    "hex color to rgb color"
+  ],
   "devDependencies": {
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.8",

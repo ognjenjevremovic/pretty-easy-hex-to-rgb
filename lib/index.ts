@@ -1,23 +1,18 @@
-//  Make it rgb
-function rgb(hex: string): number[] {
-    let red     : number;
-    let green   : number;
-    let blue    : number;
+//  Dependancies
+import rgb from './hex-rgb';
 
-    //  Make it a valid hex color value (6)
-    if (hex.length === 3) hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
 
-    red     = parseInt(hex.substring(0, 2), 16);
-    green   = parseInt(hex.substring(2, 4), 16);
-    blue    = parseInt(hex.substring(4, 6), 16);
-
-    //  Not valid
-    if(isNaN(red) || isNaN(green) || isNaN(blue)) throw Error('Invalid HEX color code value supplied');
-
-    return [ red, green, blue ];
-}
-
-//  Module entry point
+/**
+ * @description
+ *  Trims the string passed and checks if it's a valid HEX color value representation
+ *  if it's not it will throw an Error and stop the execution
+ *  else, it will make a rgb color value representation of the HEX color value passed
+ *  and return the output in the Array like format
+ * 
+ * @export
+ * @param {string} hex
+ * @returns {number[]}
+ */
 export default function hexToRgb(hex: string): number[] {
 
     //  Not string or empty
