@@ -9,4 +9,4 @@
  * @param {string} hex
  * @returns {number[]}
  */
-export declare function hexToRgb(hex: string): number[];
+export declare function hexToRgb(hex: string): number[] | Error;

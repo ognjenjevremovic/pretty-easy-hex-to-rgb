@@ -17,12 +17,12 @@ var hex_rgb_1 = require("./hex-rgb");
 function hexToRgb(hex) {
     //  Not string or empty
     if (!pretty_easy_data_types_1.isString(hex) || !hex)
-        throw new Error('Hex color code expected');
+        return new Error('Hex color code expected');
     //  Remove the hash, if present
     hex = hex.replace(/^#/, '');
     //  Not valid string
     if (!(hex.length === 3) && !(hex.length === 6)) {
-        throw new Error("Hex color representations should be in the format of :\n            => '#xxx'\n                or\n            => '#xxxxxx'\n        ");
+        return new Error("Hex color representations should be in the format of :\n            => '#xxx'\n                or\n            => '#xxxxxx'\n        ");
     }
     //  Return the array
     return hex_rgb_1.rgb(hex);

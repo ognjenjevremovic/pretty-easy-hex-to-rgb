@@ -14,17 +14,17 @@ import { rgb } from './hex-rgb';
  * @param {string} hex
  * @returns {number[]}
  */
-export function hexToRgb(hex: string): number[] {
+export function hexToRgb(hex: string): number[] | Error {
 
     //  Not string or empty
-    if(!isString(hex) || !hex) throw new Error('Hex color code expected');
+    if(!isString(hex) || !hex) return new Error('Hex color code expected');
 
     //  Remove the hash, if present
     hex = hex.replace(/^#/, '');
 
     //  Not valid string
     if(!(hex.length === 3) && !(hex.length === 6)) {
-        throw new Error(`Hex color representations should be in the format of :
+        return new Error(`Hex color representations should be in the format of :
             => '#xxx'
                 or
             => '#xxxxxx'

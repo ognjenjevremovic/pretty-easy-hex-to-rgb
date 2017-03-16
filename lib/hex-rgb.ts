@@ -7,7 +7,7 @@
  * @param {string} hex
  * @returns {number[]}
  */
-export function rgb(hex: string): number[] {
+export function rgb(hex: string): number[] | Error {
     //  Placeholders
     let red     : number;
     let green   : number;
@@ -22,8 +22,11 @@ export function rgb(hex: string): number[] {
     blue    = parseInt(hex.substring(4, 6), 16);
 
     //  Not valid hex color passed
-    if(isNaN(red) || isNaN(green) || isNaN(blue)) throw Error('Invalid HEX color code value supplied');
+    if(isNaN(red) || isNaN(green) || isNaN(blue)) return new Error('Invalid HEX color code value supplied');
 
 
+    //  Return a RGB color representation of a HEX color
+    //  in the array of [red, green, blue] color values
+    //  of number types
     return [ red, green, blue ];
 }

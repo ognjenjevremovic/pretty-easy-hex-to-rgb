@@ -1,6 +1,6 @@
 {
   "name": "pretty-easy-hex-to-rgb",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Converts a hex color value to it's coresponding rgb value and returns it in an array like format of red, green, blue color values",
   "author": "Ognjen Jevremović <jevremovic.ognjen@gmail.com> (https://github.com/ognjenjevremovic)",
   "homepage": "https://github.com/ognjenjevremovic/pretty-easy-hex-to-rgb",

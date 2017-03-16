@@ -7,4 +7,4 @@
  * @param {string} hex
  * @returns {number[]}
  */
-export declare function rgb(hex: string): number[];
+export declare function rgb(hex: string): number[] | Error;

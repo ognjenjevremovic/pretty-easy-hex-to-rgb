@@ -23,7 +23,10 @@ function rgb(hex) {
     blue = parseInt(hex.substring(4, 6), 16);
     //  Not valid hex color passed
     if (isNaN(red) || isNaN(green) || isNaN(blue))
-        throw Error('Invalid HEX color code value supplied');
+        return new Error('Invalid HEX color code value supplied');
+    //  Return a RGB color representation of a HEX color
+    //  in the array of [red, green, blue] color values
+    //  of number types
     return [red, green, blue];
 }
 exports.rgb = rgb;
