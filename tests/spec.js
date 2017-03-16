@@ -1,44 +1,44 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 //  Dependancies
-var _1 = require(".");
+var index_1 = require("./index");
 //  Value passed is not a string value
 describe('Value passed is not a string at all', function () {
     //  undefined
-    _1.invalidHEXValue_returnError('undefined');
-    _1.invalidHEXValue_returnError('undefined', undefined);
+    index_1.invalidHEXValue_returnError('undefined');
+    index_1.invalidHEXValue_returnError('undefined', undefined);
     //  null
-    _1.invalidHEXValue_returnError('null', null);
+    index_1.invalidHEXValue_returnError('null', null);
     //  boolean
-    _1.invalidHEXValue_returnError('boolean', false);
-    _1.invalidHEXValue_returnError('boolean', true);
+    index_1.invalidHEXValue_returnError('boolean', false);
+    index_1.invalidHEXValue_returnError('boolean', true);
     //  numbers
-    _1.invalidHEXValue_returnError('number', 0);
-    _1.invalidHEXValue_returnError('number', 25);
+    index_1.invalidHEXValue_returnError('number', 0);
+    index_1.invalidHEXValue_returnError('number', 25);
     //  arrays
-    _1.invalidHEXValue_returnError('array', []);
-    _1.invalidHEXValue_returnError('array', ['some', 'random', 'values', 25, false]);
+    index_1.invalidHEXValue_returnError('array', []);
+    index_1.invalidHEXValue_returnError('array', ['some', 'random', 'values', 25, false]);
     //  Object literals
-    _1.invalidHEXValue_returnError('object', {});
-    _1.invalidHEXValue_returnError('object', { foo: 'bar', baz: 'badoom' });
+    index_1.invalidHEXValue_returnError('object', {});
+    index_1.invalidHEXValue_returnError('object', { foo: 'bar', baz: 'badoom' });
     //  function
-    _1.invalidHEXValue_returnError('function', function () { });
+    index_1.invalidHEXValue_returnError('function', function () { });
     //  Date
-    _1.invalidHEXValue_returnError('instanceof Date', new Date());
+    index_1.invalidHEXValue_returnError('instanceof Date', new Date());
     //  Error
-    _1.invalidHEXValue_returnError('instanceof Error', new Error());
+    index_1.invalidHEXValue_returnError('instanceof Error', new Error());
 });
 //  Value passed is an invalid hex color value representation
 describe('Value passed is not a valid HEX color value representation', function () {
     //  More info
     var info = 'invalid HEX color value representation';
     //  Invalid string values
-    _1.invalidHEXValue_returnError("" + info, '');
-    _1.invalidHEXValue_returnError("" + info, '   ');
-    _1.invalidHEXValue_returnError("" + info, 'random');
-    _1.invalidHEXValue_returnError("" + info, '3245');
-    _1.invalidHEXValue_returnError("" + info, './]');
-    _1.invalidHEXValue_returnError("" + info, '#4+?[A.');
+    index_1.invalidHEXValue_returnError("" + info, '');
+    index_1.invalidHEXValue_returnError("" + info, '   ');
+    index_1.invalidHEXValue_returnError("" + info, 'random');
+    index_1.invalidHEXValue_returnError("" + info, '3245');
+    index_1.invalidHEXValue_returnError("" + info, './]');
+    index_1.invalidHEXValue_returnError("" + info, '#4+?[A.');
 });
 //  Test - Valid hex color value (Returns an array)
 describe('Value passed is a valid HEX color value representation', function () {
@@ -48,24 +48,24 @@ describe('Value passed is a valid HEX color value representation', function () {
     var infoNoHash_6 = '6 character string, no #';
     var infoHash_6 = '6 character string, with #';
     //  3 character, valid string representation of HEX color code
-    _1.validHEXValue_returnsArray(infoNoHash_3, 'eee', [238, 238, 238]);
-    _1.validHEXValue_returnsArray(infoNoHash_3, '123', [17, 34, 51]);
-    _1.validHEXValue_returnsArray(infoNoHash_3, 'E4A', [238, 68, 170]);
-    _1.validHEXValue_returnsArray(infoNoHash_3, 'a2c', [170, 34, 204]);
+    index_1.validHEXValue_returnsArray(infoNoHash_3, 'eee', [238, 238, 238]);
+    index_1.validHEXValue_returnsArray(infoNoHash_3, '123', [17, 34, 51]);
+    index_1.validHEXValue_returnsArray(infoNoHash_3, 'E4A', [238, 68, 170]);
+    index_1.validHEXValue_returnsArray(infoNoHash_3, 'a2c', [170, 34, 204]);
     //  3 character, valid string representation of HEX color code
-    _1.validHEXValue_returnsArray(infoHash_3, 'eee', [238, 238, 238]);
-    _1.validHEXValue_returnsArray(infoHash_3, '123', [17, 34, 51]);
-    _1.validHEXValue_returnsArray(infoHash_3, 'E4A', [238, 68, 170]);
-    _1.validHEXValue_returnsArray(infoHash_3, 'a2c', [170, 34, 204]);
+    index_1.validHEXValue_returnsArray(infoHash_3, 'eee', [238, 238, 238]);
+    index_1.validHEXValue_returnsArray(infoHash_3, '123', [17, 34, 51]);
+    index_1.validHEXValue_returnsArray(infoHash_3, 'E4A', [238, 68, 170]);
+    index_1.validHEXValue_returnsArray(infoHash_3, 'a2c', [170, 34, 204]);
     //  3 character, valid string representation of HEX color code
-    _1.validHEXValue_returnsArray(infoNoHash_6, 'eeeeee', [238, 238, 238]);
-    _1.validHEXValue_returnsArray(infoNoHash_6, '112233', [17, 34, 51]);
-    _1.validHEXValue_returnsArray(infoNoHash_6, 'EE44AA', [238, 68, 170]);
-    _1.validHEXValue_returnsArray(infoNoHash_6, 'aa22cc', [170, 34, 204]);
+    index_1.validHEXValue_returnsArray(infoNoHash_6, 'eeeeee', [238, 238, 238]);
+    index_1.validHEXValue_returnsArray(infoNoHash_6, '112233', [17, 34, 51]);
+    index_1.validHEXValue_returnsArray(infoNoHash_6, 'EE44AA', [238, 68, 170]);
+    index_1.validHEXValue_returnsArray(infoNoHash_6, 'aa22cc', [170, 34, 204]);
     //  3 character, valid string representation of HEX color code
-    _1.validHEXValue_returnsArray(infoHash_6, '#eeeeee', [238, 238, 238]);
-    _1.validHEXValue_returnsArray(infoHash_6, '#112233', [17, 34, 51]);
-    _1.validHEXValue_returnsArray(infoHash_6, '#EE44AA', [238, 68, 170]);
-    _1.validHEXValue_returnsArray(infoHash_6, '#aa22cc', [170, 34, 204]);
+    index_1.validHEXValue_returnsArray(infoHash_6, '#eeeeee', [238, 238, 238]);
+    index_1.validHEXValue_returnsArray(infoHash_6, '#112233', [17, 34, 51]);
+    index_1.validHEXValue_returnsArray(infoHash_6, '#EE44AA', [238, 68, 170]);
+    index_1.validHEXValue_returnsArray(infoHash_6, '#aa22cc', [170, 34, 204]);
 });
 //# sourceMappingURL=spec.js.map
