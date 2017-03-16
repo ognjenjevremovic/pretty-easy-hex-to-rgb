@@ -1,72 +1,71 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 //  Dependancies
-var assert = require("assert");
-var hexToRbg = require("..");
-//  Test - Not a string (Errors out)
+var _1 = require(".");
+//  Value passed is not a string value
 describe('Value passed is not a string at all', function () {
     //  undefined
-    it('should throw an error - undefined', function () {
-        assert.throws(function () { return hexToRbg(); }, /Hex color code expected/);
-        assert.throws(function () { return hexToRbg(undefined); }, Error);
-    });
+    _1.invalidHEXValue_returnError('undefined');
+    _1.invalidHEXValue_returnError('undefined', undefined);
     //  null
-    it('should throw an error - null', function () {
-        assert.throws(function () { return hexToRbg(null); }, Error);
-    });
-    //  false
-    it('should throw an error - false', function () {
-        assert.throws(function () { return hexToRbg(false); }, Error);
-    });
+    _1.invalidHEXValue_returnError('null', null);
+    //  boolean
+    _1.invalidHEXValue_returnError('boolean', false);
+    _1.invalidHEXValue_returnError('boolean', true);
     //  numbers
-    it('should throw an error - number', function () {
-        assert.throws(function () { return hexToRbg(0); }, Error);
-        assert.throws(function () { return hexToRbg(25); }, Error);
-    });
+    _1.invalidHEXValue_returnError('number', 0);
+    _1.invalidHEXValue_returnError('number', 25);
     //  arrays
-    it('should throw an error - array', function () {
-        assert.throws(function () { return hexToRbg([]); }, Error);
-        assert.throws(function () { return hexToRbg(['some', 'random', 'values', 25, false]); }, Error);
-    });
+    _1.invalidHEXValue_returnError('array', []);
+    _1.invalidHEXValue_returnError('array', ['some', 'random', 'values', 25, false]);
     //  Object literals
-    it('should throw an error - object literal', function () {
-        assert.throws(function () { return hexToRbg({}); }, Error);
-        assert.throws(function () { return hexToRbg({ foo: 'bar', baz: 'badoom' }); }, Error);
-    });
+    _1.invalidHEXValue_returnError('object', {});
+    _1.invalidHEXValue_returnError('object', { foo: 'bar', baz: 'badoom' });
     //  function
-    it('should throw an error - function', function () {
-        assert.throws(function () { return hexToRbg(function () { }); }, Error);
-    });
+    _1.invalidHEXValue_returnError('function', function () { });
     //  Date
-    it('should throw an error - instanceof Date', function () {
-        assert.throws(function () { return hexToRbg(new Date()); }, Error);
-    });
+    _1.invalidHEXValue_returnError('instanceof Date', new Date());
     //  Error
-    it('should throw an error - instanceof Error', function () {
-        assert.throws(function () { return hexToRbg(new Error('some error')); }, Error);
-    });
+    _1.invalidHEXValue_returnError('instanceof Error', new Error());
 });
-//  Test - Invalid hex color value (Errors out)
+//  Value passed is an invalid hex color value representation
 describe('Value passed is not a valid HEX color value representation', function () {
-    it('should throw an error - string but not a valid HEX color value representation', function () {
-        assert.throws(function () { return hexToRbg(''); }, Error);
-        assert.throws(function () { return hexToRbg('   '); }, Error);
-        assert.throws(function () { return hexToRbg('random'); }, Error);
-        assert.throws(function () { return hexToRbg('3245'); }, Error);
-        assert.throws(function () { return hexToRbg('./]'); }, Error);
-        assert.throws(function () { return hexToRbg('#4+?]p'); }, Error);
-    });
+    //  More info
+    var info = 'invalid HEX color value representation';
+    //  Invalid string values
+    _1.invalidHEXValue_returnError("" + info, '');
+    _1.invalidHEXValue_returnError("" + info, '   ');
+    _1.invalidHEXValue_returnError("" + info, 'random');
+    _1.invalidHEXValue_returnError("" + info, '3245');
+    _1.invalidHEXValue_returnError("" + info, './]');
+    _1.invalidHEXValue_returnError("" + info, '#4+?[A.');
 });
 //  Test - Valid hex color value (Returns an array)
 describe('Value passed is a valid HEX color value representation', function () {
-    it('should return an array of numbers, representing RGB values', function () {
-        assert.deepEqual(hexToRbg('#e54'), [238, 85, 68]);
-        assert.deepEqual(hexToRbg('#1a50e9'), [26, 80, 233]);
-        assert.deepEqual(hexToRbg('AaE6dD'), [170, 230, 221]);
-        assert.deepEqual(hexToRbg('123'), [17, 34, 51]);
-        assert.deepEqual(hexToRbg('dcA'), [221, 204, 170]);
-        assert.deepEqual(hexToRbg('#A2B'), [170, 34, 187]);
-        assert.deepEqual(hexToRbg('451954'), [69, 25, 84]);
-    });
+    //  More info
+    var infoNoHash_3 = '3 character string, no #';
+    var infoHash_3 = '3 character string, with #';
+    var infoNoHash_6 = '6 character string, no #';
+    var infoHash_6 = '6 character string, with #';
+    //  3 character, valid string representation of HEX color code
+    _1.validHEXValue_returnsArray(infoNoHash_3, 'eee', [238, 238, 238]);
+    _1.validHEXValue_returnsArray(infoNoHash_3, '123', [17, 34, 51]);
+    _1.validHEXValue_returnsArray(infoNoHash_3, 'E4A', [238, 68, 170]);
+    _1.validHEXValue_returnsArray(infoNoHash_3, 'a2c', [170, 34, 204]);
+    //  3 character, valid string representation of HEX color code
+    _1.validHEXValue_returnsArray(infoHash_3, 'eee', [238, 238, 238]);
+    _1.validHEXValue_returnsArray(infoHash_3, '123', [17, 34, 51]);
+    _1.validHEXValue_returnsArray(infoHash_3, 'E4A', [238, 68, 170]);
+    _1.validHEXValue_returnsArray(infoHash_3, 'a2c', [170, 34, 204]);
+    //  3 character, valid string representation of HEX color code
+    _1.validHEXValue_returnsArray(infoNoHash_6, 'eeeeee', [238, 238, 238]);
+    _1.validHEXValue_returnsArray(infoNoHash_6, '112233', [17, 34, 51]);
+    _1.validHEXValue_returnsArray(infoNoHash_6, 'EE44AA', [238, 68, 170]);
+    _1.validHEXValue_returnsArray(infoNoHash_6, 'aa22cc', [170, 34, 204]);
+    //  3 character, valid string representation of HEX color code
+    _1.validHEXValue_returnsArray(infoHash_6, '#eeeeee', [238, 238, 238]);
+    _1.validHEXValue_returnsArray(infoHash_6, '#112233', [17, 34, 51]);
+    _1.validHEXValue_returnsArray(infoHash_6, '#EE44AA', [238, 68, 170]);
+    _1.validHEXValue_returnsArray(infoHash_6, '#aa22cc', [170, 34, 204]);
 });
 //# sourceMappingURL=spec.js.map
