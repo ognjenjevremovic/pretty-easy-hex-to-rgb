@@ -1,5 +1,5 @@
 //  Dependancies
-import { validHEXValue_returnsArray, invalidHEXValue_returnError } from './index';
+import { validHEXValue_returnsArray, invalidHEXValue_returnError } from '.';
 
 
 //  Value passed is not a string value
