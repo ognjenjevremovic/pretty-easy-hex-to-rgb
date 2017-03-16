@@ -19,18 +19,18 @@ $ npm install pretty-easy-hex-to-rgb
 # Usage
 After installing the module (localy in your project directory), in order to use it in your file you first need to require it.
 ```javascript
-let hexToRgb = require('pretty-easy-hex-to-rgb');
+let hexToRGB = require('pretty-easy-hex-to-rgb');
 ```
 &nbsp;
 
 or if you use TypeScript
 ```typescript
-import hexToRgb from 'pretty-easy-hex-to-rgb'
+import hexToRGB from 'pretty-easy-hex-to-rgb'
 ```
 &nbsp;
 
-The module returns a function for you to call and supply it with a HEX color value that you'd like to be tarnsformed into the corresponding rgb value.
-The function returns an Array of numbers, in the order of *red color value*, *green color value* and *blue color value*.
+The module returns a function for you to call and supply it with a HEX color value that you'd like to be transformed into the corresponding rgb value.
+The function returns an Array of numbers, in the order of *red color value*, *green color value* and *blue color value* or an instance of Error class if the invalid HEX color representation was passed.
 &nbsp;
 
 ***Important:***
@@ -44,12 +44,12 @@ The function returns an Array of numbers, in the order of *red color value*, *gr
 
 ### Convert HEX color to RGB color
 ```javascript
-hexToRgb('f00');          //  [255, 0, 0]
-hexToRgb('#0F0');         //  [0, 255, 0]
-hexToRgb('#0000fF');      //  [0, 0, 255]
-hexToRgb('#ffc0cb');      //  [255, 192, 203]
-hexToRgb('#008080');      //  [0, 128, 128]
-hexToRgb('#FFE4E1');      //  [255, 228, 225]
+hexToRGB('f00');          //  [255, 0, 0]
+hexToRGB('#0F0');         //  [0, 255, 0]
+hexToRGB('#0000fF');      //  [0, 0, 255]
+hexToRGB('#ffc0cb');      //  [255, 192, 203]
+hexToRGB('#008080');      //  [0, 128, 128]
+hexToRGB('#FFE4E1');      //  [255, 228, 225]
 
 /*
 *   Note that you can, but you're not forced to, to include a 
@@ -58,6 +58,43 @@ hexToRgb('#FFE4E1');      //  [255, 228, 225]
 *   Also, the letters are NOT case sensitive;
 *   value #a00 would produce the same output as A00
 */
+```
+
+&nbsp;
+
+### Consider the following
+```javascript
+/*
+*   Since 1.2.0, the module will return an instance of an Error class,
+*   instead of throwing an error and terminating the process
+*   making it more dynamic and usable for production
+*   where you depend on the user input,
+*   if argument passed is not a valid HEX color value.
+*
+*   Because of this change, I advise you to 
+*   consider including a utility library,
+*   to check the output data type, such as
+*             pretty-easy-data-types
+*
+*   https://www.npmjs.com/package/pretty-easy-data-types
+*/
+const { 
+    isArray,        //  check for instance of Array class
+    isError         //  check for instance of Error class
+} = require('pretty-easy-data-types');
+const hexToRGB  = require('pretty-easy-hex-to-rgb');
+
+
+//  You can pass any value/data type to a function
+const rgbColorValue = hexToRGB('#f00');
+
+//  Check if the value returned is an instance of an Array class
+//  if it is, make a valid rgb css property color value out of it
+//  else it is an instance of an Error class
+const rgbOutput = isArray(rgbColorValue) ?
+    `rgb(${rgbColorValue.join('')})` :
+    rgbColorValue;
+if(isError(rgbOutput)) console.log(`Invalid HEX color value passed: ${rgbOutput.message}`);
 ```
 
 &nbsp;
