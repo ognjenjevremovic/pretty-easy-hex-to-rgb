@@ -1,7 +1,12 @@
 # pretty-easy-hex-to-rgb
+
+&nbsp;
+
 [![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status - Travis CI][travis-image]][travis-url]
+[![Build Status - Appveyor][appveyor-image]][appveyor-url]
 [![Tests][tests-image]][travis-url]
+[![Dependancies][dependancy-image]][dependancy-url]
 
 ### *What is pretty-easy-hex-to-rgb?*
 ***pretty-easy-hex-to-rgb*** *is a simple NodeJS module for converting a HEX color value to it's corresponding rgb value*.
@@ -117,4 +122,8 @@ Licensed under the [MIT](https://github.com/ognjenjevremovic/pretty-easy-hex-to-
 [npm-url]: https://npmjs.org/package/pretty-easy-hex-to-rgb
 [travis-image]: https://img.shields.io/travis/ognjenjevremovic/pretty-easy-hex-to-rgb/master.svg
 [travis-url]: https://travis-ci.org/ognjenjevremovic/pretty-easy-hex-to-rgb
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/s0aqf6h93d0i07yn?svg=true
+[appveyor-url]: https://ci.appveyor.com/project/ognjenjevremovic/pretty-easy-hex-to-rgb
 [tests-image]: https://img.shields.io/badge/test-passing-green.svg
+[dependancy-image]: https://david-dm.org/ognjenjevremovic/pretty-easy-hex-to-rgb/status.svg
+[dependancy-url]: https://david-dm.org/ognjenjevremovic/pretty-easy-hex-to-rgb
