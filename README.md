@@ -25,7 +25,7 @@ let hexToRGB = require('pretty-easy-hex-to-rgb');
 
 or if you use TypeScript
 ```typescript
-import hexToRGB from 'pretty-easy-hex-to-rgb'
+import * as hexToRGB from 'pretty-easy-hex-to-rgb';
 ```
 &nbsp;
 
@@ -33,7 +33,7 @@ The module returns a function for you to call and supply it with a HEX color val
 The function returns an Array of numbers, in the order of *red color value*, *green color value* and *blue color value* or an instance of Error class if the invalid HEX color representation was passed.
 &nbsp;
 
-***Important:***
+##### ***Important :***
  * hashes are optional (both *'#f00'* and *'f00'* will produce the same output),
  * you can use both _lowercase_ and _UPPERCASE_ letters (*'F00'* and *'f00'* will produce the same output),
  * you can use both 3 and 6 character notation for the HEX value (*'FF0000'* and *'F00'* will produce the same output).
@@ -52,31 +52,25 @@ hexToRGB('#008080');      //  [0, 128, 128]
 hexToRGB('#FFE4E1');      //  [255, 228, 225]
 
 /*
-*   Note that you can, but you're not forced to, to include a 
-*   hash [#] symbol in front of the HEX color value;
-*   it would work either way.
+*   Note that you can, but you're not forced to include a 
+*   hash symbol [#] in front of the HEX color value;
+*   it works either way.
 *   Also, the letters are NOT case sensitive;
-*   value #a00 would produce the same output as A00
+*   value #f00 would produce the same output as F00
 */
 ```
 
 &nbsp;
 
 ### Consider the following
+Since 1.2.0 the module will return an instance of an Error class, if argument passed is not a valid HEX color value, instead of throwing an error and terminating the Node process thus making it more dynamic and usable in production where you depend on the user input.
+
+Having this in mind, I advise you to consider including a utility library to check the output data type, such as [pretty-easy-data-types](https://www.npmjs.com/package/pretty-easy-data-types).
+
 ```javascript
 /*
-*   Since 1.2.0, the module will return an instance of an Error class,
-*   instead of throwing an error and terminating the process
-*   making it more dynamic and usable for production
-*   where you depend on the user input,
-*   if argument passed is not a valid HEX color value.
-*
-*   Because of this change, I advise you to 
-*   consider including a utility library,
-*   to check the output data type, such as
-*             pretty-easy-data-types
-*
-*   https://www.npmjs.com/package/pretty-easy-data-types
+*   Only import the checks you will be using,
+*   instead of including the whole library
 */
 const { 
     isArray,        //  check for instance of Array class
@@ -86,11 +80,19 @@ const hexToRGB  = require('pretty-easy-hex-to-rgb');
 
 
 //  You can pass any value/data type to a function
+//  without causing your process to break
 const rgbColorValue = hexToRGB('#f00');
 
-//  Check if the value returned is an instance of an Array class
-//  if it is, make a valid rgb css property color value out of it
-//  else it is an instance of an Error class
+/*
+*   After converting the HEX color to its' corresponding RGB(a) value
+*   you should perform the check on the value returned and see
+*   if the conversion was successful.
+*
+*   If the value returned is of type Array the conversion was successful
+*   and in this example we're going to make a css color value out of it
+*   else it is an instance of an Error class
+*   and we're just going to log it to the console
+*/
 const rgbOutput = isArray(rgbColorValue) ?
     `rgb(${rgbColorValue.join('')})` :
     rgbColorValue;
