@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //  Dependancie
 var assert = require("assert");
-var hexToRbg = require("..");
+var hexToRgb = require("../..");
 //  Should return an Error
 var shouldReturnError = 'Should return an instance of Error ->';
 /**
@@ -18,12 +18,10 @@ var shouldReturnError = 'Should return an instance of Error ->';
 function invalidHEXValue_returnError(info, value) {
     it(shouldReturnError + " " + info, function () {
         //  Does not throw an error
-        assert.doesNotThrow(function () { return hexToRbg(); }, Error);
-        assert.doesNotThrow(function () { return hexToRbg(value); }, Error);
+        assert.doesNotThrow(function () { return hexToRgb(value); }, Error);
         //  But returns an instance of Error class
-        assert.deepEqual(function () { return hexToRbg(); }, new Error('error'));
-        assert.deepEqual(function () { return hexToRbg(value); }, new Error('error'));
+        assert.deepEqual(function () { return hexToRgb(value); }, new Error('error'));
     });
 }
 exports.invalidHEXValue_returnError = invalidHEXValue_returnError;
-//# sourceMappingURL=invalid.js.map
+//# sourceMappingURL=validate.js.map

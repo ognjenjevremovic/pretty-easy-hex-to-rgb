@@ -7,5 +7,6 @@
  * @param {string} info
  * @param {string} value
  * @param {number[]} equalityCheck
+ * @returns {*}
  */
-export declare function validHEXValue_returnsArray(info: string, value: string, equalityCheck: number[]): void;
+export declare function validHEXValue_returnsString(info: string, equalityCheck: Array<number>, value: string): void;

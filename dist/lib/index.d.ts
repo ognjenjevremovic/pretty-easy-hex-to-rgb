@@ -1,1 +1,0 @@
-export { hexToRgb } from './checkInput';
